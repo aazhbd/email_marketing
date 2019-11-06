@@ -1,2 +1,3 @@
-# email_marketing
-Email Marketing Campaign Manager
+# Email Marketing Management
+
+Email Marketing Campaign Manager with multiple users collaboration.
