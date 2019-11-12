@@ -1,0 +1,14 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('HS Fulda Email Marking') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="/">HS Fulda Email Marking</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+
+{#
+<a href="{% url 'admin:index' %}">{{ site_header|default:_('Test') }}</a>
+#}
