@@ -130,8 +130,8 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 
 
 BATON = {
-    'SITE_HEADER': 'HS Fulda Email Marking',
-    'SITE_TITLE': 'HS Fulda Email Marking',
+    'SITE_HEADER': '<span class="align-middle"><img src="' + STATIC_URL + '/img/hs-fulda-logo-leafs.jpg" alt="HS Fulda Logo" width="30px" style="margin-right: 5px;"/><span>HS Fulda Email Marketing</span></span>',
+    'SITE_TITLE': 'HS Fulda Email Marketing',
     'INDEX_TITLE': 'User Home',
     'SUPPORT_HREF': 'https://github.com/aazhbd',
     'COPYRIGHT': 'copyright © 2019 <a href="https://github.com/aazhbd">Abdullah Al Zakir Hossain and Syeda Tasneem Rumy</a>', # noqa
