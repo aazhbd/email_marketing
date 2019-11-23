@@ -2,7 +2,7 @@
 
 ### Overview
 
-Emails are part of a modern marketing campaign, and requires sending of emails in volume to hundreds of users without spamming, causing disturbance or violating their privacy. As the campaign scales to encompass a larger audience, it becomes critical to manage emails with reliability. Each campaign has a different motive and target audience. A suitable way to manage the emails per campaign with its date and contact list becomes necessary when the campaigns are maintained for a long period of time.
+Emails are part of a modern marketing campaign, and requires sending of emails in volume to hundreds of users without spamming, causing disturbance or violating their privacy. Emails has become an important component of every digital marketing plan because of its effectiveness in driving conversions and building brand loyalty. As the campaign scales to encompass a larger audience, it becomes critical to manage emails with reliability. Each campaign has a different motive and target audience. A suitable way to manage the emails per campaign with its date and contact list becomes necessary when the campaigns are maintained for a long period of time.
 
 ### User Roles
 
@@ -14,7 +14,7 @@ The following are the users of Email Campaign Management System
  
  - Contact Collector - This user creates customer contact and contact list and makes it available.
  
- - Admin User - Admin user has privilege to access all functionality.
+ - Administrator Users - Administrator Users has privileges to access all functionalities of the system.
 
  - Anonymous Users - Anonymous Users should not be able to view the contents of the website.
 
@@ -29,7 +29,7 @@ The following are the users of Email Campaign Management System
 
  - Campaign Maangers can search email campaigns using date of creation, date of campaign activation, campaign creator, contact, contact list, campaign text/title.
 
- - Campaign Maangers can send campaign emails
+ - Campaign Managers can send campaign emails
 
  - Contact Collectors can create/update Contact Details.
  
@@ -37,7 +37,7 @@ The following are the users of Email Campaign Management System
 
  - Email Template Managers can create/update Email Templates.
 
- - Admin user can delete Email Campaigns, Email Templates, Contact and Contact List.
+ - Administrator users can delete Email Campaigns, Email Templates, Contact and Contact List.
 
- - Admin User can modify the email quota for each user who can send email campaigns.
+ - Administrator users can modify the email quota for each user who can send email campaigns.
 
