@@ -14,7 +14,8 @@ The following are the users of Email Campaign Management System
  
  - Contact Collector - This user creates customer contact and contact list and makes it available.
  
- - Administrator Users - Administrator Users has privileges to access all functionalities of the system.
+ - Administrator Users - Administrator Users has privileges to access all functionalities of the system and
+                         are responsible for the management, upkeep and configuration of the system.
 
  - Anonymous Users - Anonymous Users should not be able to view the contents of the website.
 
@@ -27,7 +28,7 @@ The following are the users of Email Campaign Management System
 
  - Campaign Managers can create/update Email Campaigns.
 
- - Campaign Maangers can search email campaigns using date of creation, date of campaign activation, campaign creator, contact, contact list, campaign text/title.
+ - Campaign Managers can search email campaigns using date of creation, date of campaign activation, campaign creator, contact, contact list, campaign text/title.
 
  - Campaign Managers can send campaign emails
 
