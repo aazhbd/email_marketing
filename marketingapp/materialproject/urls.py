@@ -24,6 +24,6 @@ from django.conf.urls import include
 
 urlpatterns = [
     path('', views.homeView),
-    path('admin/', admin.site.urls),
+    path('user/', admin.site.urls),
     path('baton/', include('baton.urls')),
 ]
