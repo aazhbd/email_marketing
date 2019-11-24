@@ -19,3 +19,13 @@ class Contact(Base):
 
     def __str__(self):
         return str(self.name)
+
+
+class ContactList(Base):
+    name = models.CharField(max_length=256, blank=False)
+    description = models.CharField(max_length=512, blank=True)
+    contact = models.ManyToManyField(Contact, related_name='contact_list')
+
+    def __str__(self):
+            return str(self.name)
+
