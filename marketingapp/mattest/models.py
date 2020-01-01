@@ -29,3 +29,19 @@ class ContactList(Base):
     def __str__(self):
             return str(self.name)
 
+
+
+class Campaign(Base):
+    name = models.CharField(max_length=200, blank=False)
+    start_date = models.DateTimeField(blank=True, null=True)
+    description = models.CharField(max_length=400, blank=True)
+    eamil_subject = models.CharField(max_length=200, blank=True)
+    email_body = models.TextField(blank=True)
+
+    contact_list = models.ForeignKey(ContactList, on_delete=models.CASCADE, related_name='contact_list')
+
+    def __str__(self):
+        return str(self.name)
+
+
+

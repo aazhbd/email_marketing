@@ -8,3 +8,9 @@ class ContactListAdmin(admin.ModelAdmin):
 
 admin.site.register(Contact)
 admin.site.register(ContactList, ContactListAdmin)
+
+
+class CampaignAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Campaign, CampaignAdmin)
