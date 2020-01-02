@@ -9,6 +9,35 @@
 {% block nav-global %}{% endblock %}
 
 
+{% block content %}
+{% block object-tools %}{% endblock %}
+
+{% for campaign in campaigns %}
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-box p-2">
+    <div class="card card-block align-middle">
+        <div class="card-header">
+            <h4 class="card-title product-title"><a href="/user/mattest/campaign/{{ campaign.id }}">{{ campaign.name }}</a></h4>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><a href="/user/mattest/campaign/{{ campaign.id }}">{{ campaign.description }}</a></p>
+            <span class="d-flex justify-content-start">Campaign to be sent on {{ campaign.start_date }}</span>
+            <div class="d-flex justify-content-end">
+            <a href="http://www.articulatedlogic.com/a/artweb/" class="btn btn-info waves-effect">
+                Send Now <i class="fas fa-angle-right"></i>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+
+{% endblock %}
+
+
+
 {#
 <a href="{% url 'admin:index' %}">{{ site_header|default:_('Test') }}</a>
 #}
