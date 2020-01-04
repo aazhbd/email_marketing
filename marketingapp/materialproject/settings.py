@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'material',
-    'material.frontend',
+#    'material',
+#    'material.frontend',
     'baton',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,6 +129,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 
 
 
+
 BATON = {
     'SITE_HEADER': '<span class="align-middle"><img src="' + STATIC_URL + '/img/hs-fulda-logo-leafs.jpg" alt="HS Fulda Logo" width="30px" style="margin-right: 5px;"/><span>HS Fulda Email Marketing</span></span>',
     'SITE_TITLE': 'HS Fulda Email Marketing',
@@ -140,6 +141,7 @@ BATON = {
     'SHOW_MULTIPART_UPLOADING': True,
     'ENABLE_IMAGES_PREVIEW': True,
     'MENU': (
+        { 'type': 'free', 'label': 'Dashboard', 'url': '/user', 'perms': ('flatpages.add_flatpage', 'auth.change_user') },
         { 'type': 'title', 'label': 'main', 'apps': ('auth', ) },
         {
             'type': 'app',
@@ -159,10 +161,9 @@ BATON = {
         },
         { 'type': 'title', 'label': 'Contents', 'apps': ('flatpages', ) },
         { 'type': 'model', 'label': 'Pages', 'name': 'flatpage', 'app': 'flatpages' },
-        { 'type': 'free', 'label': 'Dashboard', 'url': '/user', 'perms': ('flatpages.add_flatpage', 'auth.change_user') },
-        { 'type': 'free', 'label': 'My parent voice', 'children': [
-            { 'type': 'model', 'label': 'A Model', 'name': 'mymodelname', 'app': 'myapp' },
-            { 'type': 'free', 'label': 'Another custom link', 'url': 'http://www.google.it' },
+        { 'type': 'free', 'label': 'Campaign Actions', 'children': [
+            { 'type': 'free', 'label': 'Campaigns List', 'url': '/' },
+            { 'type': 'model', 'label': 'Manage Campaigns', 'name': 'campaign', 'app': 'mattest' },
         ] },
     )
 }

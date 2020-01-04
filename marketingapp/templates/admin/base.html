@@ -1,5 +1,12 @@
 {% extends "admin/base.html" %}
 {% load staticfiles %}
+{% block extrastyle %}
+    <style type="text/css">
+        body.login {
+            background: ##263238 !important;
+        }
+    </style>
+{% endblock %}
 {% block extrahead %}
     <!-- custom head tags -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
