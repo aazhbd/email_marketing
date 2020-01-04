@@ -1,13 +1,15 @@
 {% extends "admin/base_site.html" %}
-
-{% block title %}{{ title }} | {{ site_title|default:_('HS Fulda Email Marking') }}{% endblock %}
+{% load staticfiles %}
+{% block title %}{{ title }} | {{ site_title|default:_('HS Fulda Email Marketing') }}{% endblock %}
 
 {% block branding %}
-<h1 id="site-name"><a href="/">HS Fulda Email Marking</a></h1>
+<a href="{% url 'admin:index' %}">
+    <span class="align-middle">
+        <img src="{% static '/img/hs-fulda-logo-leafs.jpg' %}" alt="HS Fulda Logo" width="30px" style="margin-right: 5px;"/>
+        <span>HS Fulda Email Marketing</span>
+    </span>
+</a>
 {% endblock %}
-
-{% block nav-global %}{% endblock %}
-
 
 {% block content %}
 {% block object-tools %}{% endblock %}
@@ -23,7 +25,7 @@
             <p class="card-text"><a href="/user/mattest/campaign/{{ campaign.id }}">{{ campaign.description }}</a></p>
             <span class="d-flex justify-content-start">Campaign to be sent on {{ campaign.start_date }}</span>
             <div class="d-flex justify-content-end">
-            <a href="http://www.articulatedlogic.com/a/artweb/" class="btn btn-info waves-effect">
+            <a href="#" class="btn btn-info waves-effect">
                 Send Now <i class="fas fa-angle-right"></i>
             </a>
             </div>
