@@ -133,16 +133,16 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 BATON = {
     'SITE_HEADER': '<span class="align-middle"><img src="' + STATIC_URL + '/img/hs-fulda-logo-leafs.jpg" alt="HS Fulda Logo" width="30px" style="margin-right: 5px;"/><span>HS Fulda Email Marketing</span></span>',
     'SITE_TITLE': 'HS Fulda Email Marketing',
-    'INDEX_TITLE': 'User Home',
+    'INDEX_TITLE': 'User Dashboard',
     'SUPPORT_HREF': 'https://github.com/aazhbd',
-    'COPYRIGHT': 'copyright © 2019 <a href="https://github.com/aazhbd">Abdullah Al Zakir Hossain and Syeda Tasneem Rumy</a>', # noqa
+    'COPYRIGHT': 'Copyright © 2019 <a href="https://github.com/aazhbd">Abdullah Al Zakir Hossain and Syeda Tasneem Rumy</a>', # noqa
     'POWERED_BY': '<a href="https://github.com/aazhbd">AAZH & STR</a>',
     'CONFIRM_UNSAVED_CHANGES': True,
     'SHOW_MULTIPART_UPLOADING': True,
     'ENABLE_IMAGES_PREVIEW': True,
     'MENU': (
         { 'type': 'free', 'label': 'Dashboard', 'url': '/user', 'perms': ('flatpages.add_flatpage', 'auth.change_user') },
-        { 'type': 'title', 'label': 'main', 'apps': ('auth', ) },
+        { 'type': 'title', 'label': 'functionalities', 'apps': ('auth', ) },
         {
             'type': 'app',
             'name': 'auth',
@@ -159,11 +159,27 @@ BATON = {
                 },
             )
         },
+        {
+            'type': 'app',
+            'name': 'mattest',
+            'label': 'Manage Campaign',
+            'icon': 'fa fa-envelope-open-text',
+            'models': (
+                {
+                    'name': 'contact',
+                    'label': 'Contact'
+                },
+                {
+                    'name': 'contactlist',
+                    'label': 'Contact List'
+                },
+                {
+                    'name': 'campaign',
+                    'label': 'Campaign'
+                },
+            )
+        },
         { 'type': 'title', 'label': 'Contents', 'apps': ('flatpages', ) },
-        { 'type': 'model', 'label': 'Pages', 'name': 'flatpage', 'app': 'flatpages' },
-        { 'type': 'free', 'label': 'Campaign Actions', 'children': [
-            { 'type': 'free', 'label': 'Campaigns List', 'url': '/' },
-            { 'type': 'model', 'label': 'Manage Campaigns', 'name': 'campaign', 'app': 'mattest' },
-        ] },
+        { 'type': 'free', 'icon': 'fa fa-location-arrow', 'label': 'Send Campaigns','url': '/' },
     )
 }

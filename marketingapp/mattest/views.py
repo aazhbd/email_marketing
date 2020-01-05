@@ -7,4 +7,4 @@ def homeView(request):
         return HttpResponseRedirect("/user/")
 
     campaigns = Campaign.objects.filter(status=True)
-    return render(request, 'home.html', {'campaigns': campaigns})
+    return render(request, 'home.html', {'campaigns': campaigns, 'has_permission': True})
