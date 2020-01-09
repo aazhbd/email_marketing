@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from mattest.models import Campaign
+from mattest.models import *
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from mattest.serializers import UserSerializer, GroupSerializer
+from mattest.serializers import UserSerializer, GroupSerializer, ContactSerializer, ContactListSerializer, CampaignSerializer
 
 
 def homeView(request):
@@ -26,3 +26,16 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 
+class ContactViewSet(viewsets.ModelViewSet):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer
+
+
+class ContactListViewSet(viewsets.ModelViewSet):
+    queryset = ContactList.objects.all()
+    serializer_class = ContactListSerializer
+
+
+class CampaignViewSet(viewsets.ModelViewSet):
+    queryset = Campaign.objects.all()
+    serializer_class = CampaignSerializer
