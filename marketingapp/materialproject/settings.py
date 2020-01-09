@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mattest',
+    'rest_framework',
+    'rest_framework.authtoken',
     'baton.autodiscover',
     
 ]
@@ -183,3 +185,12 @@ BATON = {
         { 'type': 'free', 'icon': 'fa fa-location-arrow', 'label': 'Send Campaigns','url': '/' },
     )
 }
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ],
+}
+
+
