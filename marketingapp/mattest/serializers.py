@@ -31,4 +31,4 @@ class ContactListSerializer(serializers.HyperlinkedModelSerializer):
 class CampaignSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Campaign
-        fields = ('id', 'name', 'start_date', 'description', 'eamil_subject', 'email_body', 'contact_list')
+        fields = ('id', 'name', 'start_date', 'description', 'email_subject', 'email_body', 'contact_list')
