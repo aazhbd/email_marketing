@@ -27,6 +27,9 @@ from mattest import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'campaigns', views.CampaignViewSet)
+router.register(r'contact', views.ContactViewSet)
+router.register(r'contactlist', views.ContactListViewSet)
 
 
 urlpatterns = [
