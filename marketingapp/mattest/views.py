@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.http import JsonResponse
+from django.views import View
 from mattest.models import *
 
 from django.contrib.auth.models import User, Group
@@ -14,6 +16,34 @@ def homeView(request):
     campaigns = Campaign.objects.filter(status=True)
     return render(request, 'home.html', {'campaigns': campaigns, 'has_permission': True})
 
+
+class SendCampaign(View):
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return HttpResponseRedirect("/user/")
+
+        campaigns = Campaign.objects.filter(status=True)
+        return render(request, 'home.html', {'campaigns': campaigns, 'has_permission': True})
+
+    def post(self, request, *args, **kwargs):
+        message = 'Sending campaign failed.'
+        
+        api_call = request.POST.get('api_call', True)
+        campaign_id = request.POST.get('campaign_id', None)
+        
+        message = 'Campaign sent successfully.' if sendCampaignNow(campaign_id)  else 'Sending campaign failed.'
+        
+        if api_call == 'false' or not api_call:
+            return render(request, 'home.html', {'message': message})
+        else:
+            return JsonResponse({'message': message})
+
+
+def sendCampaignNow(campaign_id):
+    if not campaign_id:
+        return False
+    print('Campaign is being sent..........')
+    return True
 
 
 class UserViewSet(viewsets.ModelViewSet):
