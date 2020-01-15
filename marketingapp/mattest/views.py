@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.views import View
+from django.core.mail import EmailMessage
+
 from mattest.models import *
 
 from django.contrib.auth.models import User, Group
@@ -31,7 +33,7 @@ class SendCampaign(View):
         api_call = request.POST.get('api_call', True)
         campaign_id = request.POST.get('campaign_id', None)
         
-        message = 'Campaign sent successfully.' if sendCampaignNow(campaign_id)  else 'Sending campaign failed.'
+        message = 'Campaign sent successfully.' if sendCampaignNow(campaign_id) else 'Sending campaign failed.'
         
         if api_call == 'false' or not api_call:
             return render(request, 'home.html', {'message': message})
@@ -42,7 +44,22 @@ class SendCampaign(View):
 def sendCampaignNow(campaign_id):
     if not campaign_id:
         return False
-    print('Campaign is being sent..........')
+
+    campaign = Campaign.objects.get(pk=campaign_id)
+    contacts = campaign.contact_list.contact.all()
+    to_emails = []
+
+    for contact in contacts:
+        to_emails.append(contact.email_address)
+
+    email_message = EmailMessage(
+        subject = campaign.email_subject,
+        body = campaign.email_body,
+        from_email = 'wmappgroup@gmail.com',
+        to = to_emails,
+    )
+    
+    sent = email_message.send()
     return True
 
 
