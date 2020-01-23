@@ -137,7 +137,7 @@ BATON = {
     'SITE_TITLE': 'HS Fulda Email Marketing',
     'INDEX_TITLE': 'User Dashboard',
     'SUPPORT_HREF': 'https://github.com/aazhbd',
-    'COPYRIGHT': 'Copyright © 2019 <a href="https://github.com/aazhbd">Abdullah Al Zakir Hossain and Syeda Tasneem Rumy</a>', # noqa
+    'COPYRIGHT': 'Developed by: © 2019 <a href="https://github.com/aazhbd">Abdullah Al Zakir Hossain, Syeda Tasneem Rumy, Lakshmi Ramesh, Sheila Adjei</a>',
     'POWERED_BY': '<a href="https://github.com/aazhbd">AAZH & STR</a>',
     'CONFIRM_UNSAVED_CHANGES': True,
     'SHOW_MULTIPART_UPLOADING': True,
