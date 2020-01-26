@@ -28,7 +28,7 @@ class SendCampaign(View):
         if not request.user.is_authenticated:
             return HttpResponseRedirect("/user/")
 
-        campaigns = Campaign.objects.filter(status=True)
+        campaigns = Campaign.objects.all()
         return render(request, 'home.html', {'campaigns': campaigns, 'has_permission': True})
 
     def post(self, request, *args, **kwargs):
@@ -50,6 +50,9 @@ def sendCampaignNow(campaign_id):
         return False
 
     campaign = Campaign.objects.get(pk=campaign_id)
+    if campaign.status == False:
+        return False
+
     contacts = campaign.contact_list.contact.all()
     to_emails = []
 
@@ -64,6 +67,13 @@ def sendCampaignNow(campaign_id):
     )
     
     sent = email_message.send()
+
+    try:
+        campaign.status = False
+        campaign.save()
+    except:
+        return False
+
     return True
 
 
