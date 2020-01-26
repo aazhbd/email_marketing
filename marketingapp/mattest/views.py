@@ -19,6 +19,10 @@ def homeView(request):
     return render(request, 'home.html', {'campaigns': campaigns, 'has_permission': True})
 
 
+def loginSucess(request):
+    return JsonResponse({'message': 'login was successful'})
+
+
 class SendCampaign(View):
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
