@@ -1,0 +1,4 @@
+#Sun Jan 26 18:38:06 CET 2020
+base.0=/Users/lakshmiramesh/Documents/Fulda/Class Materials/WiSe2019/MobileAndWebApps/email_marketing_flutter/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
