@@ -1,7 +1,7 @@
 cachetools==3.1.1
 certifi==2019.11.28
 chardet==3.0.4
-Django==2.2.13
+Django==2.2.24
 django-baton==1.5.6
 djangorestframework==3.11.0
 djangorestframework-stubs==1.1.0
