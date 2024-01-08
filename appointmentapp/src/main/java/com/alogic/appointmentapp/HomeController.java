@@ -1,5 +1,8 @@
 package com.alogic.appointmentapp;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+import com.alogic.appointmentapp.appointment.Appointment;
+import com.alogic.appointmentapp.appointment.AppointmentService;
 import com.alogic.appointmentapp.patient.Patient;
 import com.alogic.appointmentapp.patient.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +19,11 @@ public class HomeController {
     @Autowired
     private final PatientService patientService;
 
-    public HomeController(PatientService patientService) {
+    private final AppointmentService appointmentService;
+
+    public HomeController(PatientService patientService, AppointmentService appointmentService) {
         this.patientService = patientService;
+        this.appointmentService = appointmentService;
     }
 
     @GetMapping("/")
@@ -50,12 +56,27 @@ public class HomeController {
     }
 
     @GetMapping("/addappointment")
-    public String addAppointmentsView() {
+    public String addAppointmentsView(Model model) {
+        model.addAttribute("patients", patientService.getPatients());
+        model.addAttribute("times", new AppointmentTime().getTimes());
         return "addappointment";
     }
 
+    @PostMapping("/submitappointment")
+    public String setAppointmentView(@ModelAttribute Appointment appointment, Model model) {
+        try {
+            model.addAttribute("message", "Patient added successfully.");
+        }
+        catch (Exception ex) {
+            model.addAttribute("message", "Invalid data for patient. " + ex.getMessage());
+        }
+        model.addAttribute("patients", patientService.getPatients());
+        return "listpatients";
+    }
+
     @GetMapping("/listappointments")
-    public String listAppointmentsView() {
+    public String listAppointmentsView(Model model) {
+        model.addAttribute("appointments", appointmentService.getAppointments());
         return "listappointments";
     }
 }
