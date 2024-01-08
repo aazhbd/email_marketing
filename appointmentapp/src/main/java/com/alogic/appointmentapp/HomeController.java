@@ -8,10 +8,11 @@ import com.alogic.appointmentapp.patient.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -63,15 +64,20 @@ public class HomeController {
     }
 
     @PostMapping("/submitappointment")
-    public String setAppointmentView(@ModelAttribute Appointment appointment, Model model) {
+    public String setAppointmentView(@RequestParam("patient") String patient_email, @RequestParam("date") String date, @RequestParam("time") String time, Model model) {
         try {
-            model.addAttribute("message", "Patient added successfully.");
+            Patient existingPatient = patientService.getPatientByEmail(patient_email);
+            if(existingPatient != null) {
+                appointmentService.addNewAppointment(existingPatient, LocalDate.parse(date), LocalTime.parse(time));
+            }
+            model.addAttribute("message", "Appointment added successfully.");
         }
         catch (Exception ex) {
-            model.addAttribute("message", "Invalid data for patient. " + ex.getMessage());
+            model.addAttribute("message", "Invalid data for appointment. " + ex.getMessage());
         }
+        model.addAttribute("appointments", appointmentService.getAppointments());
         model.addAttribute("patients", patientService.getPatients());
-        return "listpatients";
+        return "listappointments";
     }
 
     @GetMapping("/listappointments")

@@ -30,6 +30,11 @@ public class PatientService {
         patientRepository.save(patient);
     }
 
+    public Patient getPatientByEmail(String email) {
+        Optional<Patient> inputPatient = patientRepository.findPatientByEmail(email);
+        return inputPatient.orElse(null);
+    }
+
     public void deletePatient(Long id) {
         if(!patientRepository.existsById(id)) {
             throw new IllegalStateException("Patient doesn't exist.");

@@ -23,7 +23,7 @@
 
         <div class="form-floating p-2">
             <select  class="form-control" name="patient">
-                <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.lastName}"></option>
+                <option th:each="patient : ${patients}" th:value="${patient.email}" th:text="${patient.lastName}"></option>
             </select>
         </div>
 
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-floating p-2">
-            <select  class="form-control" name="patient">
+            <select  class="form-control" name="time">
                 <option th:each="time : ${times}" th:value="${time}" th:text="${time}"></option>
             </select>
         </div>
