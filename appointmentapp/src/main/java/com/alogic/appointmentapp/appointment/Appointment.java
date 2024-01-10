@@ -3,6 +3,8 @@ package com.alogic.appointmentapp.appointment;
 import com.alogic.appointmentapp.patient.Patient;
 import jakarta.persistence.*;
 
+import java.security.InvalidParameterException;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 @Entity
@@ -32,6 +34,12 @@ public class Appointment {
     }
 
     public Appointment(Patient patient, LocalDateTime appointmentTime) {
+        if(appointmentTime.getDayOfWeek() == DayOfWeek.SATURDAY) {
+            throw new InvalidParameterException("Appointment cannot be set on Saturday.");
+        }
+        if(appointmentTime.getDayOfWeek() == DayOfWeek.SUNDAY) {
+            throw new InvalidParameterException("Appointment cannot be set on Sunday.");
+        }
         this.patient = patient;
         this.appointmentTime = appointmentTime;
     }
@@ -57,6 +65,12 @@ public class Appointment {
     }
 
     public void setAppointmentTime(LocalDateTime appointmentTime) {
+        if(appointmentTime.getDayOfWeek() == DayOfWeek.SATURDAY) {
+            throw new InvalidParameterException("Appointment cannot be set on Saturday.");
+        }
+        if(appointmentTime.getDayOfWeek() == DayOfWeek.SUNDAY) {
+            throw new InvalidParameterException("Appointment cannot be set on Sunday.");
+        }
         this.appointmentTime = appointmentTime;
     }
 
