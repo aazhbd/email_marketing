@@ -1,3 +1,4 @@
 *.css linguist-language=Python
 *.js linguist-language=Java
+*.dart linguist-language=Dart
 App/static/* linguist-vendored
